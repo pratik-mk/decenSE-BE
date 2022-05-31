@@ -6,16 +6,6 @@ import { Token } from './token.model';
 export class TokensService {
   private tokens: Token[] = [];
 
-  //mint_id
-  //token_name
-  //shopkeeper_pubkey
-  //market_valuation
-  //token_supply
-  //skeeper_state
-  //pda
-  //user_ata
-  //pda_ata
-
   insertToken(
     mint_id: string,
     token_name: string,
