@@ -8,16 +8,28 @@ export class TokensController {
 
   @Post()
   addToken(
-    @Body('tokenName') tokenName: string,
-    @Body('marketVal') marketVal: number,
-    @Body('tokenSupply') tokenSupply: number,
+    @Body('mint_id') mint_id: string,
+    @Body('token_name') token_name: string,
+    @Body('shopkeeper_pubkey') shopkeeper_pubkey: string,
+    @Body('market_valuation') market_valuation: number,
+    @Body('token_supply') token_supply: number,
+    @Body('skeeper_state') skeeper_state: string,
+    @Body('pda') pda: string,
+    @Body('user_ata') user_ata: string,
+    @Body('pda_ata') pda_ata: string,
   ): any {
-    const generatedId = this.tokensService.insertToken(
-      tokenName,
-      marketVal,
-      tokenSupply,
+    const generateToken = this.tokensService.insertToken(
+      mint_id,
+      token_name,
+      shopkeeper_pubkey,
+      market_valuation,
+      token_supply,
+      skeeper_state,
+      pda,
+      user_ata,
+      pda_ata,
     );
-    return { id: generatedId };
+    return generateToken;
   }
 
   @Get()

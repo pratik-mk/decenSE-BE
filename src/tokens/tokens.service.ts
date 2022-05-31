@@ -6,11 +6,40 @@ import { Token } from './token.model';
 export class TokensService {
   private tokens: Token[] = [];
 
-  insertToken(tokenName: string, marketVal: number, tokenSupply: number) {
-    const tokenId = Math.random().toString();
-    const newToken = new Token(tokenId, tokenName, marketVal, tokenSupply);
+  //mint_id
+  //token_name
+  //shopkeeper_pubkey
+  //market_valuation
+  //token_supply
+  //skeeper_state
+  //pda
+  //user_ata
+  //pda_ata
+
+  insertToken(
+    mint_id: string,
+    token_name: string,
+    shopkeeper_pubkey: string,
+    market_valuation: number,
+    token_supply: number,
+    skeeper_state: string,
+    pda: string,
+    user_ata: string,
+    pda_ata: string,
+  ) {
+    const newToken = new Token(
+      mint_id,
+      token_name,
+      shopkeeper_pubkey,
+      market_valuation,
+      token_supply,
+      skeeper_state,
+      pda,
+      user_ata,
+      pda_ata,
+    );
     this.tokens.push(newToken);
-    return { id: tokenId };
+    return newToken;
   }
 
   getAllTokens() {
@@ -18,7 +47,7 @@ export class TokensService {
   }
 
   getSingleToken(id: string) {
-    const token = this.tokens.find((token) => token.id === id);
+    const token = this.tokens.find((token) => token.mint_id === id);
     if (!token) {
       throw new NotFoundException('Could not find token by id');
     }
