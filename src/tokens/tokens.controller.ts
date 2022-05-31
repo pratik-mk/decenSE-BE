@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TokensService } from './tokens.service';
 
 @Controller('tokens')
@@ -23,5 +23,10 @@ export class TokensController {
   @Get()
   getAllTokens() {
     return this.tokensService.getAllTokens();
+  }
+
+  @Get(':id')
+  getToken(@Param('id') id: string) {
+    return this.tokensService.getSingleToken(id);
   }
 }
