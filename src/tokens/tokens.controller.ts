@@ -21,7 +21,7 @@ export class TokensController {
   }
 
   @Get()
-  getEntry() {
-    return 'Hello World! Token';
+  getAllTokens() {
+    return this.tokensService.getAllTokens();
   }
 }

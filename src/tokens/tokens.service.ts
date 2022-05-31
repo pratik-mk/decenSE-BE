@@ -17,4 +17,8 @@ export class TokensService {
     this.tokens.push(newToken);
     return { id: tokenId };
   }
+
+  getAllTokens() {
+    return [...this.tokens];
+  }
 }
