@@ -8,7 +8,7 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateTokenDto } from './dto/createToken.dto';
+import { CreateTokenDto } from './dto/CreateToken.dto';
 import { TokensService } from './tokens.service';
 
 @Controller('tokens')
